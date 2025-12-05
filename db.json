@@ -1,0 +1,475 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Ahmad Rizki",
+      "email": "ahmad@example.com",
+      "password": "password123",
+      "phone": "081234567890",
+      "avatar": "https://i.pravatar.cc/150?img=1",
+      "created_at": "2025-11-01T10:00:00+07:00"
+    },
+    {
+      "id": "2",
+      "name": "Siti Nurhaliza",
+      "email": "siti@example.com",
+      "password": "password123",
+      "phone": "081234567891",
+      "avatar": "https://i.pravatar.cc/150?img=5",
+      "created_at": "2025-11-02T11:00:00+07:00"
+    },
+    {
+      "id": "3",
+      "name": "Budi Santoso",
+      "email": "budi@example.com",
+      "password": "password123",
+      "phone": "081234567892",
+      "avatar": "https://i.pravatar.cc/150?img=3",
+      "created_at": "2025-11-03T12:00:00+07:00"
+    },
+    {
+      "id": "1138",
+      "name": "Febioll",
+      "email": "febioll@gmail.com",
+      "password": "febioll123",
+      "phone": "081234567111",
+      "avatar": "https://i.pravatar.cc/150?img=44",
+      "created_at": "2025-12-04T16:20:30.534"
+    },
+    {
+      "id": "87ae",
+      "name": "febi",
+      "email": "febi@gmail.com",
+      "password": "febi123",
+      "phone": "0987654321",
+      "avatar": "https://i.pravatar.cc/150?img=16",
+      "created_at": "2025-12-04T21:50:19.156"
+    },
+    {
+      "id": "ec85",
+      "name": "Febiola",
+      "email": "lalaoll@gmail.com",
+      "password": "febi123",
+      "phone": "081234567890",
+      "avatar": "https://i.pravatar.cc/150?img=2",
+      "created_at": "2025-12-05T09:42:14.912"
+    }
+  ],
+  "hotels": [
+    {
+      "id": "1",
+      "name": "Grand Hotel Jakarta",
+      "description": "Hotel bintang 5 yang terletak di pusat kota Jakarta dengan pemandangan kota yang menakjubkan. Menawarkan fasilitas lengkap dan pelayanan terbaik untuk pengalaman menginap yang tak terlupakan.",
+      "address": "Jl. M.H. Thamrin No. 1",
+      "city": "Jakarta",
+      "rating": 4.8,
+      "price_per_night": 1500000,
+      "images": [
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800",
+        "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800",
+        "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800"
+      ],
+      "facilities": [
+        "WiFi Gratis",
+        "Kolam Renang",
+        "Restaurant",
+        "Gym",
+        "Spa",
+        "Room Service 24 Jam",
+        "Parkir Gratis",
+        "Bar"
+      ],
+      "rooms_available": 15,
+      "room_types": [
+        {
+          "type": "Deluxe Room",
+          "price": 1500000,
+          "capacity": 2
+        },
+        {
+          "type": "Executive Suite",
+          "price": 2500000,
+          "capacity": 3
+        },
+        {
+          "type": "Presidential Suite",
+          "price": 5000000,
+          "capacity": 4
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Bali Beach Resort",
+      "description": "Resort mewah di tepi pantai Bali dengan akses langsung ke pantai pribadi. Nikmati sunset yang indah dan suasana tropis yang menenangkan.",
+      "address": "Jl. Pantai Kuta No. 88",
+      "city": "Bali",
+      "rating": 4.9,
+      "price_per_night": 2000000,
+      "images": [
+        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800",
+        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
+        "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800",
+        "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800"
+      ],
+      "facilities": [
+        "WiFi Gratis",
+        "Kolam Renang Infinity",
+        "Restaurant",
+        "Spa",
+        "Beach Access",
+        "Water Sports",
+        "Kids Club",
+        "Bar Pantai"
+      ],
+      "rooms_available": 20,
+      "room_types": [
+        {
+          "type": "Ocean View Room",
+          "price": 2000000,
+          "capacity": 2
+        },
+        {
+          "type": "Beach Villa",
+          "price": 3500000,
+          "capacity": 4
+        },
+        {
+          "type": "Royal Villa",
+          "price": 6000000,
+          "capacity": 6
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Bandung Mountain Lodge",
+      "description": "Lodge nyaman di pegunungan Bandung dengan udara sejuk dan pemandangan alam yang asri. Cocok untuk liburan keluarga dan retreat.",
+      "address": "Jl. Raya Lembang No. 234",
+      "city": "Bandung",
+      "rating": 4.6,
+      "price_per_night": 800000,
+      "images": [
+        "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800",
+        "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
+        "https://images.unsplash.com/photo-1596436889106-be35e843f974?w=800",
+        "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800"
+      ],
+      "facilities": [
+        "WiFi Gratis",
+        "Restaurant",
+        "Taman",
+        "Fireplace",
+        "Hiking Trail",
+        "Parkir Gratis",
+        "BBQ Area"
+      ],
+      "rooms_available": 12,
+      "room_types": [
+        {
+          "type": "Standard Room",
+          "price": 800000,
+          "capacity": 2
+        },
+        {
+          "type": "Family Room",
+          "price": 1200000,
+          "capacity": 4
+        },
+        {
+          "type": "Mountain View Suite",
+          "price": 1800000,
+          "capacity": 3
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Surabaya Business Hotel",
+      "description": "Hotel bisnis modern di pusat kota Surabaya dengan fasilitas meeting room dan business center yang lengkap.",
+      "address": "Jl. HR Muhammad No. 50",
+      "city": "Surabaya",
+      "rating": 4.5,
+      "price_per_night": 1000000,
+      "images": [
+        "https://images.unsplash.com/photo-1455587734955-081b22074882?w=800",
+        "https://images.unsplash.com/photo-1517840901100-8179e982acb7?w=800",
+        "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=800",
+        "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"
+      ],
+      "facilities": [
+        "WiFi Gratis",
+        "Business Center",
+        "Meeting Rooms",
+        "Restaurant",
+        "Gym",
+        "Laundry Service",
+        "Airport Shuttle"
+      ],
+      "rooms_available": 25,
+      "room_types": [
+        {
+          "type": "Business Room",
+          "price": 1000000,
+          "capacity": 2
+        },
+        {
+          "type": "Executive Room",
+          "price": 1500000,
+          "capacity": 2
+        },
+        {
+          "type": "Suite",
+          "price": 2200000,
+          "capacity": 3
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Yogyakarta Heritage Hotel",
+      "description": "Hotel dengan arsitektur tradisional Jawa yang memadukan kemewahan modern dengan budaya lokal. Dekat dengan Malioboro dan Keraton.",
+      "address": "Jl. Malioboro No. 123",
+      "city": "Yogyakarta",
+      "rating": 4.7,
+      "price_per_night": 900000,
+      "images": [
+        "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
+        "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800",
+        "https://images.unsplash.com/photo-1587985064135-0366536eab42?w=800",
+        "https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?w=800"
+      ],
+      "facilities": [
+        "WiFi Gratis",
+        "Restaurant Tradisional",
+        "Kolam Renang",
+        "Spa",
+        "Cultural Tour",
+        "Batik Workshop",
+        "Parkir Gratis"
+      ],
+      "rooms_available": 18,
+      "room_types": [
+        {
+          "type": "Joglo Room",
+          "price": 900000,
+          "capacity": 2
+        },
+        {
+          "type": "Heritage Suite",
+          "price": 1400000,
+          "capacity": 3
+        },
+        {
+          "type": "Royal Pavilion",
+          "price": 2500000,
+          "capacity": 4
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Lombok Sunset Villa",
+      "description": "Villa eksklusif di Lombok dengan pemandangan sunset yang spektakuler. Private pool dan butler service untuk pengalaman menginap yang istimewa.",
+      "address": "Jl. Pantai Senggigi No. 45",
+      "city": "Lombok",
+      "rating": 4.9,
+      "price_per_night": 2500000,
+      "images": [
+        "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800",
+        "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=800",
+        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800",
+        "https://images.unsplash.com/photo-1615460549969-36fa19521a4f?w=800"
+      ],
+      "facilities": [
+        "WiFi Gratis",
+        "Private Pool",
+        "Butler Service",
+        "Restaurant",
+        "Spa",
+        "Beach Access",
+        "Snorkeling",
+        "Diving Center"
+      ],
+      "rooms_available": 8,
+      "room_types": [
+        {
+          "type": "Garden Villa",
+          "price": 2500000,
+          "capacity": 2
+        },
+        {
+          "type": "Ocean Villa",
+          "price": 3500000,
+          "capacity": 3
+        },
+        {
+          "type": "Presidential Villa",
+          "price": 7000000,
+          "capacity": 6
+        }
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "id": "1",
+      "user_id": "1",
+      "hotel_id": "1",
+      "hotel_name": "Grand Hotel Jakarta",
+      "room_type": "Deluxe Room",
+      "check_in": "2025-12-10",
+      "check_out": "2025-12-12",
+      "total_nights": 2,
+      "total_price": 3000000,
+      "status": "confirmed",
+      "booking_date": "2025-12-01T10:30:00+07:00",
+      "guest_name": "Ahmad Rizki",
+      "guest_phone": "081234567890",
+      "special_request": "Late check-in"
+    },
+    {
+      "id": "2",
+      "user_id": "2",
+      "hotel_id": "2",
+      "hotel_name": "Bali Beach Resort",
+      "room_type": "Ocean View Room",
+      "check_in": "2025-12-15",
+      "check_out": "2025-12-18",
+      "total_nights": 3,
+      "total_price": 6000000,
+      "status": "pending",
+      "booking_date": "2025-12-02T14:20:00+07:00",
+      "guest_name": "Siti Nurhaliza",
+      "guest_phone": "081234567891",
+      "special_request": "Honeymoon package"
+    },
+    {
+      "id": "3",
+      "user_id": "1",
+      "hotel_id": "3",
+      "hotel_name": "Bandung Mountain Lodge",
+      "room_type": "Family Room",
+      "check_in": "2025-11-20",
+      "check_out": "2025-11-22",
+      "total_nights": 2,
+      "total_price": 2400000,
+      "status": "completed",
+      "booking_date": "2025-11-15T09:00:00+07:00",
+      "guest_name": "Ahmad Rizki",
+      "guest_phone": "081234567890",
+      "special_request": ""
+    },
+    {
+      "id": "4",
+      "user_id": "3",
+      "hotel_id": "5",
+      "hotel_name": "Yogyakarta Heritage Hotel",
+      "room_type": "Joglo Room",
+      "check_in": "2025-12-08",
+      "check_out": "2025-12-10",
+      "total_nights": 2,
+      "total_price": 1800000,
+      "status": "cancelled",
+      "booking_date": "2025-11-28T16:45:00+07:00",
+      "guest_name": "Budi Santoso",
+      "guest_phone": "081234567892",
+      "special_request": ""
+    }
+  ],
+  "favorites": [
+    {
+      "id": "1",
+      "user_id": "1",
+      "hotel_id": "1",
+      "added_at": "2025-11-25T10:00:00+07:00"
+    },
+    {
+      "id": "2",
+      "user_id": "1",
+      "hotel_id": "2",
+      "added_at": "2025-11-26T11:00:00+07:00"
+    },
+    {
+      "id": "3",
+      "user_id": "2",
+      "hotel_id": "2",
+      "added_at": "2025-11-27T12:00:00+07:00"
+    },
+    {
+      "id": "4",
+      "user_id": "2",
+      "hotel_id": "6",
+      "added_at": "2025-11-28T13:00:00+07:00"
+    },
+    {
+      "id": "5",
+      "user_id": "3",
+      "hotel_id": "5",
+      "added_at": "2025-11-29T14:00:00+07:00"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "hotel_id": "1",
+      "user_id": "1",
+      "user_name": "Ahmad Rizki",
+      "user_avatar": "https://i.pravatar.cc/150?img=1",
+      "rating": 5,
+      "comment": "Hotel yang sangat bagus! Pelayanan ramah dan kamar bersih. Sangat recommended!",
+      "date": "2025-11-30T10:00:00+07:00"
+    },
+    {
+      "id": "2",
+      "hotel_id": "2",
+      "user_id": "3",
+      "user_name": "Budi Santoso",
+      "user_avatar": "https://i.pravatar.cc/150?img=3",
+      "rating": 5,
+      "comment": "Pemandangan pantai yang luar biasa! Resort ini benar-benar surga dunia.",
+      "date": "2025-11-29T15:30:00+07:00"
+    },
+    {
+      "id": "3",
+      "hotel_id": "3",
+      "user_id": "1",
+      "user_name": "Ahmad Rizki",
+      "user_avatar": "https://i.pravatar.cc/150?img=1",
+      "rating": 4,
+      "comment": "Suasana pegunungan yang sejuk dan menenangkan. Cocok untuk family gathering.",
+      "date": "2025-11-22T09:00:00+07:00"
+    },
+    {
+      "id": "4",
+      "hotel_id": "1",
+      "user_id": "2",
+      "user_name": "Siti Nurhaliza",
+      "user_avatar": "https://i.pravatar.cc/150?img=5",
+      "rating": 5,
+      "comment": "Fasilitas lengkap dan lokasi strategis di pusat kota. Will come back!",
+      "date": "2025-11-28T14:20:00+07:00"
+    },
+    {
+      "id": "5",
+      "hotel_id": "5",
+      "user_id": "2",
+      "user_name": "Siti Nurhaliza",
+      "user_avatar": "https://i.pravatar.cc/150?img=5",
+      "rating": 5,
+      "comment": "Nuansa budaya Jawa yang kental. Batik workshop-nya sangat menarik!",
+      "date": "2025-11-27T11:15:00+07:00"
+    },
+    {
+      "id": "6",
+      "hotel_id": "2",
+      "user_id": "1",
+      "user_name": "Ahmad Rizki",
+      "user_avatar": "https://i.pravatar.cc/150?img=1",
+      "rating": 5,
+      "comment": "Perfect untuk honeymoon! Private beach dan sunset view yang romantis.",
+      "date": "2025-11-26T16:45:00+07:00"
+    }
+  ]
+}
