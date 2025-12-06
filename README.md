@@ -1,7 +1,7 @@
 # HotelKu - Projek UAS Mobile Programming
 
 Halo! 👋
-Ini adalah projek aplikasi booking hotel sederhana yang saya buat untuk memenuhi tugas akhir mata kuliah Mobile Programming di Semester 3. Aplikasi ini dibuat menggunakan Flutter dan backend-nya simulasi pakai JSON Server.
+Ini adalah projek aplikasi booking hotel sederhana. Aplikasi ini dibuat menggunakan Flutter dan backend-nya simulasi pakai JSON Server.
 
 ## Fitur-fitur Aplikasi
 Aplikasi ini punya beberapa fitur utama:
