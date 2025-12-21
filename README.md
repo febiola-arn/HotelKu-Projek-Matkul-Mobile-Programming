@@ -13,47 +13,125 @@ HotelKu merupakan aplikasi reservasi hotel berbasis mobile yang dirancang untuk 
 Daftar Fitur
 Fitur Pengguna (Customer)
 - Multi-role Authentication: Login dan Register sebagai Customer atau Hotel Admin.
-- Hotel Discovery: Pencarian hotel berdasarkan lokasi, rating, dan kategori.
+- Hotel Discovery: Pencarian hotel berdasarkan lokasi
 - Detail Hotel: Informasi lengkap mengenai fasilitas, gambar, dan tipe kamar.
 - Booking System: Pemesanan kamar hotel secara real-time.
 - My Bookings: Manajemen riwayat pemesanan dan status reservasi.
 - Favorites : Menyimpan hotel pilihan untuk akses cepat.
 - User Profile: Pengaturan profil dan informasi akun.
+- Rate & Review: Memberikan umpan balik dan review terhadap hotel yang telah dipesan.
 
 Fitur Admin (Hotel Admin)
 - Dashboard Admin: Ringkasan data hotel dan reservasi bagi pemilik hotel.
 - Manage Hotel: Edit informasi hotel, fasilitas, dan tipe kamar.
 - Manage Bookings: Memantau dan mengelola pesanan yang masuk.
 
-Technical Stack Application
+
+## Perbandingan Fitur Sebelum dan Sesudah Pengembangan
+
+Dashboard Customer
+# Sebelum Pengembangan:
+- Pencarian hotel dasar
+- Pemesanan kamar
+- Melihat daftar booking
+- Sistem rating sederhana (1x review per hotel)
+- Manajemen profil dasar
+
+# Sesudah Pengembangan:
+- Pencarian hotel dengan filter lengkap (lokasi, rating, fasilitas)
+- Sistem booking real-time dengan konfirmasi instan
+- Multiple reviews (1 review per transaksi booking)
+- Opsi review anonim
+- Manajemen booking yang lebih detail
+- Sistem favorit yang ditingkatkan
+- Riwayat transaksi lengkap
+
+Dashboard Admin
+# Sebelum Pengembangan:
+- Daftar pesanan
+- Manajemen kamar dasar
+- Informasi hotel statis
+
+**Sesudah Pengembangan:**
+- Dashboard analitik dengan statistik pemesanan
+- Manajemen fasilitas hotel yang dinamis
+- Auto-checkout otomatis pukul 12:00 siang
+- Sistem manajemen review yang komprehensif
+- Filter dan pencarian pesanan yang lebih baik
+- Tampilan daftar pesanan yang lebih rapi (tanpa ID pesanan)
+- Kemampuan mengedit detail hotel secara lengkap
+- Manajemen gambar hotel yang lebih baik
+
+## Technical Stack Application
 - Frontend Framework: Flutter 3.35.2 (Stable)
 - Programming Language: Dart 3.9.0
 - Backend API: PHP Native 8.0+
 - Database: MySQL (MariaDB)
 - State Management: Provider
 - Local Server: XAMPP / PHP Built-in Server
+- Public Access: Ngrok for remote API access
 
 How to Run Application
-1. Persiapan Database
-2. Pastikan XAMPP (MySQL) sudah aktif.
-3. Buat database baru bernama `hotelku` di phpMyAdmin.
-4. Import file `hotelku.sql` ke dalam database tersebut.
-5. Jalankan Backend API
-6. Buka folder project di terminal atau File Explorer.
-7. Jalankan file `start_server.bat` (Double-click) atau jalankan perintah:
-   ```powershell
-   php -S localhost:8000 -t .
-   ```
-8. Pastikan jendela terminal server tetap terbuka selama aplikasi digunakan.
+### Cara 1: Menggunakan Server Ngrok (Direkomendasikan)
+Aplikasi ini menggunakan server backend yang sudah di-host melalui Ngrok. Berikut cara menjalankannya:
 
-Jalankan Aplikasi Flutter
-1. Pastikan koneksi internet stabil (untuk load assets/images).
-2. Di terminal project, jalankan:
+1. **Persiapan Awal**
+   - Pastikan Anda memiliki koneksi internet yang stabil
+   - Install Flutter dan Dart SDK di komputer Anda
+   - Install Chrome browser (untuk menjalankan di web)
+
+2. **Jalankan Aplikasi Flutter**
+   ```bash
+   # Clone repository
+   git clone -b pengembangan-terbaru https://github.com/febiola-arn/HotelKu-Projek-Matkul-Mobile-Programming.git
+   cd hotelku
+
+   # Install dependencies
+   flutter pub get
+
+   # Jalankan aplikasi
+   flutter run -d chrome
+   ```
+   - Aplikasi akan otomatis terhubung ke server backend yang sudah disediakan
+   - Tidak perlu menjalankan server lokal
+
+### Cara 2: Menjalankan Server Lokal (Opsional)
+Jika Anda ingin menjalankan server sendiri:
+
+1. **Persiapan Database**
+   - Pastikan XAMPP (MySQL) sudah aktif
+   - Buat database baru bernama `hotelku` di phpMyAdmin
+   - Import file `database.sql` ke dalam database tersebut
+
+2. **Jalankan Backend API**
+   - Buka folder project di terminal
+   - Jalankan perintah:
+     ```powershell
+     php -S localhost:8000 -t .
+     ```
+   - Pastikan jendela terminal server tetap terbuka
+
+3. **Konfigurasi Aplikasi**
+   - Buka file `lib/utils/constants.dart`
+   - Ubah `baseUrl` menjadi `'http://localhost:8000/php_api'`
+
+4. **Jalankan Aplikasi Flutter**
    ```bash
    flutter pub get
    flutter run -d chrome
    ```
-   *(Atau pilih device emulator/physical device yang tersedia)*
+
+### Catatan Penting
+- Aplikasi ini membutuhkan koneksi internet untuk mengakses server backend
+- Pastikan tidak ada firewall yang memblokir koneksi ke server
+- Untuk masalah koneksi, pastikan URL di `lib/utils/constants.dart` mengarah ke server yang benar
+
 
 ---
 *Proyek ini dikembangkan sebagai tugas akhir mata kuliah Mobile Programming.*
+
+**Server Status**: Online (Terakhir diperbarui: 21 Desember 2024)*
+
+##Catatan
+Versi terbaru dari app ini dapat dilihat di branch pengembangan terbaru dan clone langsung dari branch tersebut untuk test app
+
