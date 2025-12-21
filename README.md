@@ -1,68 +1,136 @@
-HotelKu
-
-HotelKu merupakan sistem aplikasi reservasi hotel berbasis mobile yang dikembangkan untuk memenuhi kebutuhan pemesanan akomodasi secara efisien dan real-time. Proyek ini mengimplementasikan arsitektur Client-Server dengan Flutter sebagai frontend dan PHP Native sebagai RESTful API Service.
+HotelKu - Mobile Hotel Reservation
 
 Tim Pengembang
-| NIM      | Nama Mahasiswa        | Peran (Role)                                      |
-| 241712059| Febiola Kristin Aruan | Project Manager & Core Mobile Developer           |
-| 241712070| Rael Gilbert Manurung | Backend Engineer & Database Administrator         |
-| 241712052| Vaidon Selo Sinambela | Frontend Developer (Home & Hotel Discovery)       |
-| 241712051| Nadya Lahfah          | Frontend Developer (User Profile & Booking System)|
-| 241712057| Elaine Keisha Pasaribu| Frontend Developer (Admin Dashboard)              |
+- Febiola Kristin Aruan - 241712059
+- Rael Gilbert Manurung - 241712070
+- Vaidon Selo Sinambela - 241712052
+- Nadya Lahfah - 241712051
+- Elaine Keisha Pasaribu - 241712057
+
+Deskripsi Singkat Aplikasi
+HotelKu merupakan aplikasi reservasi hotel berbasis mobile yang dirancang untuk mempermudah pengguna dalam mencari dan memesan penginapan secara efisien. Aplikasi ini menghubungkan pengguna (Customer) dengan pemilik properti (Hotel Admin) melalui sistem yang terintegrasi, menggunakan arsitektur Client-Server dengan Flutter sebagai frontend dan PHP Native sebagai backend API.
+
+Daftar Fitur
+Fitur Pengguna (Customer)
+- Multi-role Authentication: Login dan Register sebagai Customer atau Hotel Admin.
+- Hotel Discovery: Pencarian hotel berdasarkan lokasi
+- Detail Hotel: Informasi lengkap mengenai fasilitas, gambar, dan tipe kamar.
+- Booking System: Pemesanan kamar hotel secara real-time.
+- My Bookings: Manajemen riwayat pemesanan dan status reservasi.
+- Favorites : Menyimpan hotel pilihan untuk akses cepat.
+- User Profile: Pengaturan profil dan informasi akun.
+- Rate & Review: Memberikan umpan balik dan review terhadap hotel yang telah dipesan.
+
+Fitur Admin (Hotel Admin)
+- Dashboard Admin: Ringkasan data hotel dan reservasi bagi pemilik hotel.
+- Manage Hotel: Edit informasi hotel, fasilitas, dan tipe kamar.
+- Manage Bookings: Memantau dan mengelola pesanan yang masuk.
 
 
-Arsitektur Sistem:
-Aplikasi ini dibangun menggunakan teknologi berikut:
-* Mobile Framework: Flutter SDK (Dart)
-* Backend Service : PHP Native (version 8.0+)
-* Database        : MySQL / MariaDB
-* Architectural Pattern : MVVM (Model-View-ViewModel) via Provider State Management
-* API Protocol          : REST (Representational State Transfer) with JSON format
+## Perbandingan Fitur Sebelum dan Sesudah Pengembangan
 
+### Dashboard Customer
+**Sebelum Pengembangan:**
+- Pencarian hotel dasar
+- Pemesanan kamar
+- Melihat daftar booking
+- Sistem rating sederhana (1x review per hotel)
+- Manajemen profil dasar
 
-Modul & Fungsionalitas
-1.Client Side (Mobile App)
-Authentication System: Dukungan login multi-role (Customer & Hotel Admin).
-Hotel Discovery      : Algoritma pencarian hotel berdasarkan lokasi dan filter harga.
-Booking Engine       : Sistem reservasi kamar dengan validasi ketersediaan real-time.
-User Dashboard       : Manajemen profil, riwayat transaksi, dan daftar favorit.
+**Sesudah Pengembangan:**
+- Pencarian hotel dengan filter lengkap (lokasi, rating, fasilitas)
+- Sistem booking real-time dengan konfirmasi instan
+- Multiple reviews (1 review per transaksi booking)
+- Opsi review anonim
+- Manajemen booking yang lebih detail
+- Notifikasi status booking
+- Sistem favorit yang ditingkatkan
+- Riwayat transaksi lengkap
 
+### Dashboard Admin
+**Sebelum Pengembangan:**
+- Daftar pesanan
+- Manajemen kamar dasar
+- Informasi hotel statis
 
-2.Admin Side (Hotel Management)
-Property Management  : CRUD (*Create, Read, Update, Delete*) data hotel dan fasilitas.
-Sales Monitoring     : Dashboard analitik untuk memantau performa penjualan dan okupansi.
-Guest Control        : Verifikasi kedatangan tamu dan manajemen status check-in/out.
+**Sesudah Pengembangan:**
+- Dashboard analitik dengan statistik pemesanan
+- Manajemen fasilitas hotel yang dinamis
+- Auto-checkout otomatis pukul 12:00 siang
+- Sistem manajemen review yang komprehensif
+- Filter dan pencarian pesanan yang lebih baik
+- Tampilan daftar pesanan yang lebih rapi (tanpa ID pesanan)
+- Kemampuan mengedit detail hotel secara lengkap
+- Manajemen gambar hotel yang lebih baik
 
+## Technical Stack Application
+- Frontend Framework: Flutter 3.35.2 (Stable)
+- Programming Language: Dart 3.9.0
+- Backend API: PHP Native 8.0+
+- Database: MySQL (MariaDB)
+- State Management: Provider
+- Local Server: XAMPP / PHP Built-in Server
+- Public Access: Ngrok for remote API access
 
-3.Panduan Implementasi (Deployment)
-Untuk menjalankan proyek ini pada lingkungan pengembangan lokal (Local Environment), ikuti instruksi teknis berikut:
-Konfigurasi Backend & Database
-1.  Pastikan Apache Web Server dan MySQL Database telah aktif (Disarankan menggunakan XAMPP/WAMP).
-2.  Letakkan direktori proyek `hotelku` ke dalam root directory server (`htdocs`).
-3.  Akses phpMyAdmin dan buat database baru dengan skema `hotelku`.
-4.  Lakukan import skema database menggunakan file `database.sql` yang tersedia pada direktori root proyek.
+How to Run Application
+### Cara 1: Menggunakan Server Ngrok (Direkomendasikan)
+Aplikasi ini menggunakan server backend yang sudah di-host melalui Ngrok. Berikut cara menjalankannya:
 
-4.Konfigurasi Endpoint Mobile
-Agar aplikasi mobile dapat berkomunikasi dengan server lokal, konfigurasi Base URL diperlukan.
-1.  Identifikasi IPv4 Address host machine melalui terminal (`ipconfig` pada Windows atau `ifconfig` pada Unix-based).
-2.  Sesuaikan konstanta API pada file `lib/utils/constants.dart`:
+1. **Persiapan Awal**
+   - Pastikan Anda memiliki koneksi internet yang stabil
+   - Install Flutter dan Dart SDK di komputer Anda
+   - Install Chrome browser (untuk menjalankan di web)
 
-```dart
-class ApiConstants {
-  // Format: http://<IP_ADDRESS_ANDA>/hotelku/php_api
-  static const String baseUrl = 'http://192.168.1.XX/hotelku/php_api';
-}
-```
+2. **Jalankan Aplikasi Flutter**
+   ```bash
+   # Clone repository
+   git clone [URL_REPOSITORY_ANDA]
+   cd hotelku
 
-5.Eksekusi Aplikasi
-Jalankan perintah berikut pada terminal direktori proyek:
+   # Install dependencies
+   flutter pub get
 
-```bash
-# Mengunduh dependensi paket
-flutter pub get
+   # Jalankan aplikasi
+   flutter run -d chrome
+   ```
+   - Aplikasi akan otomatis terhubung ke server backend yang sudah disediakan
+   - Tidak perlu menjalankan server lokal
 
-# Menjalankan aplikasi (Debug Mode)
-flutter run
-```
+### Cara 2: Menjalankan Server Lokal (Opsional)
+Jika Anda ingin menjalankan server sendiri:
 
-Dokumen ini kami susun sebagai bagian dari Laporan Tugas Akhir Mata Kuliah Mobile Programming.
+1. **Persiapan Database**
+   - Pastikan XAMPP (MySQL) sudah aktif
+   - Buat database baru bernama `hotelku` di phpMyAdmin
+   - Import file `database.sql` ke dalam database tersebut
+
+2. **Jalankan Backend API**
+   - Buka folder project di terminal
+   - Jalankan perintah:
+     ```powershell
+     php -S localhost:8000 -t .
+     ```
+   - Pastikan jendela terminal server tetap terbuka
+
+3. **Konfigurasi Aplikasi**
+   - Buka file `lib/utils/constants.dart`
+   - Ubah `baseUrl` menjadi `'http://localhost:8000/php_api'`
+
+4. **Jalankan Aplikasi Flutter**
+   ```bash
+   flutter pub get
+   flutter run -d chrome
+   ```
+
+### Catatan Penting
+- Aplikasi ini membutuhkan koneksi internet untuk mengakses server backend
+- Pastikan tidak ada firewall yang memblokir koneksi ke server
+- Untuk masalah koneksi, pastikan URL di `lib/utils/constants.dart` mengarah ke server yang benar
+
+### Kontak Pengembang
+Jika menemui kendala, silakan hubungi tim pengembang melalui email atau platform lainnya.
+
+---
+*Proyek ini dikembangkan sebagai tugas akhir mata kuliah Mobile Programming.*
+
+**Server Status**: Online (Terakhir diperbarui: 21 Desember 2024)*

@@ -6,7 +6,7 @@ class ApiConstants {
   // Untuk iOS Simulator gunakan localhost
   // Untuk Physical Device gunakan IP Address komputer Anda
   // Untuk Web gunakan localhost
-  static const String baseUrl = 'http://localhost:8000/php_api';
+  static const String baseUrl = 'https://unconfected-respectful-velvet.ngrok-free.dev/php_api';
   
   // Endpoints
   static const String users = '/users';

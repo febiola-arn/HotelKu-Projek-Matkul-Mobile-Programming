@@ -44,7 +44,13 @@ class MyApp extends StatelessWidget {
           '/': (context) => const SplashScreen(),
           '/login': (context) => const LoginPage(),
           '/register': (context) => const RegisterPage(),
-          '/home': (context) => const HomePage(),
+          '/home': (context) {
+            final auth = Provider.of<AuthProvider>(context);
+            if (auth.isLoggedIn && auth.isAdmin) {
+              return const AdminDashboardPage();
+            }
+            return const HomePage();
+          },
           '/admin_dashboard': (context) => const AdminDashboardPage(),
         },
       ),

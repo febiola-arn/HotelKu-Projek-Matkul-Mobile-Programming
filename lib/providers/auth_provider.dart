@@ -11,7 +11,11 @@ class AuthProvider with ChangeNotifier {
   bool get isLoading => _isLoading;
   String? get error => _error;
   bool get isLoggedIn => _currentUser != null;
-  bool get isAdmin => _currentUser?.role == 'hotel_admin';
+  bool get isAdmin {
+    final role = _currentUser?.role ?? '';
+    final r = role.toLowerCase();
+    return r == 'hotel_admin' || r == 'admin' || r == 'owner';
+  }
 
   // Initialize - check if user is already logged in
   Future<void> initialize() async {

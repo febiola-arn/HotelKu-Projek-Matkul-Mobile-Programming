@@ -68,7 +68,22 @@ class HotelProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      _hotels = await ApiService.getHotels();
+      // Fetch base hotel data
+      List<Hotel> baseHotels = await ApiService.getHotels();
+
+      // Fetch additional stats for each hotel in parallel
+      List<Hotel> updatedHotels = await Future.wait(baseHotels.map((hotel) async {
+        try {
+          final favoriteCount = await ApiService.getFavoriteCount(hotel.id);
+          final reviewCount = await ApiService.getReviewCount(hotel.id);
+          return hotel.copyWith(favoriteCount: favoriteCount, reviewCount: reviewCount);
+        } catch (e) {
+          // If stats fail for one hotel, return the original hotel object
+          return hotel;
+        }
+      }).toList());
+
+      _hotels = updatedHotels;
       _applyFilters();
       _state = LoadingState.loaded;
     } catch (e) {
@@ -154,6 +169,15 @@ class HotelProvider with ChangeNotifier {
       _error = e.toString();
       _state = LoadingState.error;
     } finally {
+      notifyListeners();
+    }
+  }
+
+  void updateFavoriteCount(String hotelId, int favoriteCount) {
+    final index = _hotels.indexWhere((h) => h.id == hotelId);
+    if (index != -1) {
+      _hotels[index] = _hotels[index].copyWith(favoriteCount: favoriteCount);
+      _applyFilters();
       notifyListeners();
     }
   }

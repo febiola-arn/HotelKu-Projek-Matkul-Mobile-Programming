@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../models/hotel.dart';
+import '../providers/favorite_provider.dart';
 import '../utils/constants.dart';
 import '../utils/helpers.dart';
 
@@ -8,14 +10,13 @@ class HotelCard extends StatefulWidget {
   final Hotel hotel;
   final VoidCallback onTap;
   final VoidCallback? onFavoritePressed;
-  final bool isFavorite;
+  // isFavorite is now handled by the Consumer
 
   const HotelCard({
     super.key,
     required this.hotel,
     required this.onTap,
     this.onFavoritePressed,
-    this.isFavorite = false,
   });
 
   @override
@@ -162,36 +163,42 @@ class _HotelCardState extends State<HotelCard>
                       Positioned(
                         top: AppSpacing.md,
                         right: AppSpacing.md,
-                        child: Material(
-                          color: Colors.transparent,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: AppColors.white,
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.2),
-                                  blurRadius: 8,
-                                  offset: const Offset(0, 2),
+                        child: Consumer<FavoriteProvider>(
+                          builder: (context, favoriteProvider, child) {
+                            final isFavorite = favoriteProvider.isFavorite(widget.hotel.id);
+                            print('Building favorite icon for hotel ${widget.hotel.id}, isFavorite: $isFavorite');
+                            return Material(
+                              color: Colors.transparent,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: AppColors.white,
+                                  shape: BoxShape.circle,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.2),
+                                      blurRadius: 8,
+                                      offset: const Offset(0, 2),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                            child: IconButton(
-                              icon: Icon(
-                                widget.isFavorite
-                                    ? Icons.favorite
-                                    : Icons.favorite_border,
-                                color: widget.isFavorite
-                                    ? AppColors.accentColor
-                                    : AppColors.grey,
+                                child: IconButton(
+                                  icon: Icon(
+                                    isFavorite
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                    color: isFavorite
+                                        ? AppColors.accentColor
+                                        : AppColors.grey,
+                                  ),
+                                  onPressed: widget.onFavoritePressed,
+                                  splashColor:
+                                      AppColors.accentColor.withOpacity(0.3),
+                                  highlightColor:
+                                      AppColors.accentColor.withOpacity(0.1),
+                                ),
                               ),
-                              onPressed: widget.onFavoritePressed,
-                              splashColor:
-                                  AppColors.accentColor.withOpacity(0.3),
-                              highlightColor:
-                                  AppColors.accentColor.withOpacity(0.1),
-                            ),
-                          ),
+                            );
+                          },
                         ),
                       ),
                   ],
@@ -240,11 +247,10 @@ class _HotelCardState extends State<HotelCard>
 
                       const SizedBox(height: AppSpacing.md),
 
-                      // Rating and Price
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          // Rating with Island Colors
+                          // Only show rating for customers (hide favorite count badge)
                           Container(
                             padding: const EdgeInsets.symmetric(
                               horizontal: AppSpacing.md,
@@ -269,7 +275,7 @@ class _HotelCardState extends State<HotelCard>
                                 ),
                                 const SizedBox(width: AppSpacing.xs),
                                 Text(
-                                  widget.hotel.rating.toString(),
+                                  widget.hotel.dynamicRating.toStringAsFixed(1),
                                   style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15,
@@ -279,8 +285,6 @@ class _HotelCardState extends State<HotelCard>
                               ],
                             ),
                           ),
-
-                          // Price
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [

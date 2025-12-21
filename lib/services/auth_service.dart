@@ -136,6 +136,7 @@ class AuthService {
               'name': user.name,
               'phone': user.phone,
               'avatar': user.avatar,
+              'role': user.role,
             }),
           )
           .timeout(ApiConstants.timeout);
@@ -144,8 +145,9 @@ class AuthService {
 
       if (response.statusCode == 200 && json['success'] == true) {
         final updatedUser = User.fromJson(json['data']);
-        await _saveUserData(updatedUser);
-        return updatedUser;
+        final preservedRoleUser = updatedUser.copyWith(role: user.role);
+        await _saveUserData(preservedRoleUser);
+        return preservedRoleUser;
       } else {
         throw Exception(json['message'] ?? 'Gagal update profile');
       }

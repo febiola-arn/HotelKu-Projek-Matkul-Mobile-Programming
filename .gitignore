@@ -48,7 +48,6 @@ app.*.map.json
 /android/build/
 
 # Custom exclusions requested by user
-database.sql
-hotelku.sql
-php_api/
-lib/screens/
+# database.sql
+# hotelku.sql
+# php_api/

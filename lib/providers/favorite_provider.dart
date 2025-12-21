@@ -34,22 +34,24 @@ class FavoriteProvider with ChangeNotifier {
   Future<bool> addFavorite(String userId, String hotelId) async {
     if (isFavorite(hotelId)) return true;
 
-    _isLoading = true;
     _error = null;
+
+    final temp = Favorite(
+      id: 'temp-$hotelId',
+      userId: userId,
+      hotelId: hotelId,
+      addedAt: DateTime.now(),
+    );
+    _favorites = [..._favorites, temp];
     notifyListeners();
 
     try {
       await ApiService.addFavorite(userId, hotelId);
-
       await fetchFavoritesByUserId(userId);
-
-
-      _isLoading = false;
-      notifyListeners();
       return true;
     } catch (e) {
+      _favorites.removeWhere((f) => f.hotelId == hotelId);
       _error = e.toString().replaceAll('Exception: ', '');
-      _isLoading = false;
       notifyListeners();
       return false;
     }
@@ -58,30 +60,35 @@ class FavoriteProvider with ChangeNotifier {
   Future<bool> removeFavorite(String userId, String hotelId) async {
     if (!isFavorite(hotelId)) return false;
 
-    _isLoading = true;
     _error = null;
+
+    final backup = List<Favorite>.from(_favorites);
+    _favorites.removeWhere((f) => f.hotelId == hotelId);
     notifyListeners();
 
     try {
       await ApiService.removeFavorite(userId, hotelId);
-      _favorites.removeWhere((fav) => fav.hotelId == hotelId);
-
-      _isLoading = false;
-      notifyListeners();
+      await fetchFavoritesByUserId(userId);
       return true;
     } catch (e) {
+      _favorites = backup;
       _error = e.toString().replaceAll('Exception: ', '');
-      _isLoading = false;
       notifyListeners();
       return false;
     }
   }
 
   Future<bool> toggleFavorite(String userId, String hotelId) async {
+    print('Toggling favorite for hotel: $hotelId, current status: ${isFavorite(hotelId)}');
+    
     if (isFavorite(hotelId)) {
-      return await removeFavorite(userId, hotelId);
+      final success = await removeFavorite(userId, hotelId);
+      print('After remove favorite, status: ${isFavorite(hotelId)}');
+      return success;
     } else {
-      return await addFavorite(userId, hotelId);
+      final success = await addFavorite(userId, hotelId);
+      print('After add favorite, status: ${isFavorite(hotelId)}');
+      return success;
     }
   }
 
